@@ -266,6 +266,8 @@ object Formmstsc: TFormmstsc
     LabelPosition = lpLeft
     ParentBidiMode = False
     TabOrder = 0
+    OnChange = serverandportChange
+    OnKeyPress = serverandportKeyPress
   end
   object Aide: TButton
     Left = 304
