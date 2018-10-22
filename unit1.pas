@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls;
+  StdCtrls, ComCtrls, Types;
 
 type
 
@@ -17,14 +17,24 @@ type
     Button1: TButton;
     Connexion: TButton;
     ImageMS: TImage;
-    usermsgtlabel: TLabel;
     msgserver: TLabel;
+    PageControl1: TPageControl;
     serverandport: TLabeledEdit;
+    TabSheet1: TTabSheet;
+    Affichage: TTabSheet;
+    TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
+    TabSheet5: TTabSheet;
+    TabSheet6: TTabSheet;
+    usermsgtlabel: TLabel;
+    procedure Button1Click(Sender: TObject);
     procedure ConnexionClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure msgserverClick(Sender: TObject);
+    procedure PageControl1Change(Sender: TObject);
     procedure serverandportChange(Sender: TObject);
     procedure serverandportKeyPress(Sender: TObject; var Key: char);
+    procedure TabSheet1ContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
   private
 
   public
@@ -39,6 +49,7 @@ var
   noservermessage: string;
   msgserverok: string;
   usermsg: string;
+  avanced: Boolean;
 
 implementation
 
@@ -53,9 +64,17 @@ begin
   usermsg:= 'Nom d' +  #39 + 'utilisateur : Aucun parametre n'+  #39 + 'a été spécifié';
   usermsgtlabel.Caption:=usermsg;
   msgserver.Caption:=noservermessage;
+  TabSheet1.TabVisible:=True;
+  Affichage.TabVisible:=False;
+  TabSheet3.TabVisible:=False;
+  TabSheet4.TabVisible:=False;
+  TabSheet5.TabVisible:=False;
+  TabSheet6.TabVisible:=False;
+  Constraints.MaxWidth:=471;
+  Constraints.MaxHeight:=319;
 end;
 
-procedure TFormmstsc.msgserverClick(Sender: TObject);
+procedure TFormmstsc.PageControl1Change(Sender: TObject);
 begin
 
 end;
@@ -92,9 +111,43 @@ begin
     runxfreerdp;
 end;
 
+procedure TFormmstsc.TabSheet1ContextPopup(Sender: TObject; MousePos: TPoint;
+  var Handled: Boolean);
+begin
+
+end;
+
 procedure TFormmstsc.ConnexionClick(Sender: TObject);
 begin
   runxfreerdp;
+end;
+
+procedure TFormmstsc.Button1Click(Sender: TObject);
+begin
+
+  if avanced then
+    begin
+    usermsgtlabel.Visible:=True;
+    TabSheet1.TabVisible:=True;
+    Affichage.TabVisible:=False;
+    TabSheet3.TabVisible:=False;
+    TabSheet4.TabVisible:=False;
+    TabSheet5.TabVisible:=False;
+    TabSheet6.TabVisible:=False;
+    avanced:=False;
+    end
+  else
+  begin
+    usermsgtlabel.Visible:=False;
+    TabSheet1.TabVisible:=True;
+    Affichage.TabVisible:=True;
+    TabSheet3.TabVisible:=True;
+    TabSheet4.TabVisible:=True;
+    TabSheet5.TabVisible:=True;
+    TabSheet6.TabVisible:=True;
+    avanced:= True;
+  end;
+
 end;
 
 end.

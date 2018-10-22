@@ -1,15 +1,15 @@
 object Formmstsc: TFormmstsc
-  Left = 395
-  Height = 243
-  Top = 210
-  Width = 456
+  Left = 271
+  Height = 319
+  Top = 180
+  Width = 471
   HorzScrollBar.Page = 403
   HorzScrollBar.Range = 403
   VertScrollBar.Page = 241
   VertScrollBar.Range = 241
   Caption = 'Connexion Bureau à distance'
-  ClientHeight = 243
-  ClientWidth = 456
+  ClientHeight = 319
+  ClientWidth = 471
   OnCreate = FormCreate
   LCLVersion = '1.8.2.0'
   object ImageMS: TImage
@@ -250,68 +250,100 @@ object Formmstsc: TFormmstsc
       D5B8FEE47F91FF001A28A003FB56E3FB91FE47FC68A28A00FFD9
     }
   end
-  object serverandport: TLabeledEdit
-    Left = 96
-    Height = 29
-    Top = 88
-    Width = 339
-    EditLabel.AnchorSideTop.Control = serverandport
-    EditLabel.AnchorSideTop.Side = asrCenter
-    EditLabel.AnchorSideRight.Control = serverandport
-    EditLabel.AnchorSideBottom.Side = asrBottom
-    EditLabel.Left = 23
-    EditLabel.Height = 17
-    EditLabel.Top = 94
-    EditLabel.Width = 70
-    EditLabel.Caption = 'Ordinateur : '
-    EditLabel.ParentColor = False
-    EditLabel.Layout = tlBottom
-    LabelPosition = lpLeft
-    ParentBidiMode = False
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 281
+    Top = 72
+    Width = 472
+    ActivePage = TabSheet1
+    TabIndex = 0
     TabOrder = 0
-    OnChange = serverandportChange
-    OnKeyPress = serverandportKeyPress
-  end
-  object Aide: TButton
-    Left = 360
-    Height = 25
-    Top = 208
-    Width = 75
-    Caption = 'Aide'
-    TabOrder = 1
-  end
-  object Connexion: TButton
-    Left = 272
-    Height = 25
-    Top = 208
-    Width = 75
-    Caption = 'Connexion'
-    OnClick = ConnexionClick
-    TabOrder = 2
-  end
-  object Button1: TButton
-    Left = 16
-    Height = 25
-    Top = 208
-    Width = 75
-    Caption = 'Options'
-    TabOrder = 3
-  end
-  object msgserver: TLabel
-    Left = 16
-    Height = 17
-    Top = 160
-    Width = 41
-    Caption = 'srvmsg'
-    ParentColor = False
-    OnClick = msgserverClick
-  end
-  object usermsgtlabel: TLabel
-    Left = 16
-    Height = 17
-    Top = 128
-    Width = 80
-    Caption = 'usermsgtlabel'
-    ParentColor = False
+    OnChange = PageControl1Change
+    object TabSheet1: TTabSheet
+      Caption = 'Général'
+      ClientHeight = 250
+      ClientWidth = 462
+      OnContextPopup = TabSheet1ContextPopup
+      object serverandport: TLabeledEdit
+        Left = 80
+        Height = 29
+        Top = 24
+        Width = 376
+        EditLabel.AnchorSideTop.Control = serverandport
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = serverandport
+        EditLabel.AnchorSideBottom.Control = serverandport
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 7
+        EditLabel.Height = 17
+        EditLabel.Top = 30
+        EditLabel.Width = 70
+        EditLabel.Caption = 'Ordinateur : '
+        EditLabel.ParentColor = False
+        EditLabel.Layout = tlBottom
+        LabelPosition = lpLeft
+        ParentBidiMode = False
+        TabOrder = 0
+        OnChange = serverandportChange
+        OnKeyPress = serverandportKeyPress
+      end
+      object Aide: TButton
+        Left = 381
+        Height = 25
+        Top = 184
+        Width = 75
+        Caption = 'Aide'
+        TabOrder = 1
+      end
+      object Connexion: TButton
+        Left = 296
+        Height = 25
+        Top = 184
+        Width = 75
+        Caption = 'Connexion'
+        OnClick = ConnexionClick
+        TabOrder = 2
+      end
+      object Button1: TButton
+        Left = 8
+        Height = 25
+        Top = 184
+        Width = 75
+        Caption = 'Options'
+        OnClick = Button1Click
+        TabOrder = 3
+      end
+      object msgserver: TLabel
+        Left = 11
+        Height = 17
+        Top = 128
+        Width = 41
+        Caption = 'srvmsg'
+        ParentColor = False
+      end
+      object usermsgtlabel: TLabel
+        Left = 11
+        Height = 17
+        Top = 88
+        Width = 80
+        Caption = 'usermsgtlabel'
+        ParentColor = False
+      end
+    end
+    object Affichage: TTabSheet
+      Caption = 'Affichage'
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Ressources locales'
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Programmes'
+    end
+    object TabSheet5: TTabSheet
+      Caption = 'Avancé'
+    end
+    object TabSheet6: TTabSheet
+      Caption = 'Connexion'
+    end
   end
 end
