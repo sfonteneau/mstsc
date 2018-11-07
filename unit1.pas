@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, ComCtrls, ActnList, Types, Unit2;
+  StdCtrls, ComCtrls, ActnList, Types, Unit2, Process;
 
 type
 
@@ -14,10 +14,19 @@ type
 
   TFormmstsc = class(TForm)
     Aide: TButton;
+    Button1: TButton;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
+    ComboBox2: TComboBox;
+    fullscreen: TCheckBox;
     ComboBox1: TComboBox;
     Connexion: TButton;
     ImageMS: TImage;
     Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
     PageControl1: TPageControl;
     serverandport: TLabeledEdit;
     TabSheet1: TTabSheet;
@@ -26,6 +35,11 @@ type
     TabSheet4: TTabSheet;
     TabSheet5: TTabSheet;
     TabSheet6: TTabSheet;
+    ToggleBox1: TToggleBox;
+    TrackBar1: TTrackBar;
+    TrackBar2: TTrackBar;
+    procedure CheckBox1Change(Sender: TObject);
+    procedure fullscreenChange(Sender: TObject);
     procedure ConnexionClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
@@ -50,6 +64,7 @@ var
   msgserverok: string;
   usermsg: string;
   avanced: Boolean;
+  var s : ansistring;
 
 
 implementation
@@ -111,7 +126,11 @@ begin
         end
     else
         port:= '3389';
-    ExecuteProcess('/usr/bin/xfreerdp',['/sec:rdp','/v:' + Server ,'/port:' + port,'/u:' + Login.Login.Text ,'/p:' + Login.Password.Text ]);
+    RunCommand('/usr/bin/xfreerdp',['/v:' + Server ,'/port:' + port,'/u:' + Login.Login.Text ,'/p:' + Login.Password.Text ],s);
+
+{    ExecuteProcess('/usr/bin/xfreerdp',['/v:' + Server ,'/port:' + port,'/u:' + Login.Login.Text ,'/p:' + Login.Password.Text ]);}
+    Login.Password.Clear;
+    Login.Login.Clear;
   end
   else
   begin
@@ -138,6 +157,16 @@ end;
 procedure TFormmstsc.ConnexionClick(Sender: TObject);
 begin
   runxfreerdp;
+end;
+
+procedure TFormmstsc.CheckBox1Change(Sender: TObject);
+begin
+
+end;
+
+procedure TFormmstsc.fullscreenChange(Sender: TObject);
+begin
+
 end;
 
 

@@ -1,14 +1,14 @@
 object Formmstsc: TFormmstsc
-  Left = 36
-  Height = 274
-  Top = 161
+  Left = 318
+  Height = 290
+  Top = 259
   Width = 473
   HorzScrollBar.Page = 403
   HorzScrollBar.Range = 403
   VertScrollBar.Page = 241
   VertScrollBar.Range = 241
-  Caption = 'Connexion Bureau à distance'
-  ClientHeight = 274
+  Caption = 'Remote Desktop Connection'
+  ClientHeight = 290
   ClientWidth = 473
   OnCreate = FormCreate
   LCLVersion = '1.8.2.0'
@@ -252,7 +252,7 @@ object Formmstsc: TFormmstsc
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 281
+    Height = 217
     Top = 72
     Width = 472
     ActivePage = TabSheet1
@@ -261,8 +261,8 @@ object Formmstsc: TFormmstsc
     OnChange = PageControl1Change
     OnEnter = PageControl1Enter
     object TabSheet1: TTabSheet
-      Caption = 'Général'
-      ClientHeight = 250
+      Caption = 'General'
+      ClientHeight = 186
       ClientWidth = 462
       OnContextPopup = TabSheet1ContextPopup
       OnEnter = TabSheet1Enter
@@ -276,11 +276,11 @@ object Formmstsc: TFormmstsc
         EditLabel.AnchorSideRight.Control = serverandport
         EditLabel.AnchorSideBottom.Control = serverandport
         EditLabel.AnchorSideBottom.Side = asrBottom
-        EditLabel.Left = 39
+        EditLabel.Left = 4
         EditLabel.Height = 17
         EditLabel.Top = 30
-        EditLabel.Width = 70
-        EditLabel.Caption = 'Ordinateur : '
+        EditLabel.Width = 105
+        EditLabel.Caption = 'Server hostname : '
         EditLabel.ParentColor = False
         EditLabel.Layout = tlBottom
         LabelPosition = lpLeft
@@ -294,7 +294,7 @@ object Formmstsc: TFormmstsc
         Height = 25
         Top = 128
         Width = 75
-        Caption = 'Aide'
+        Caption = 'Help'
         TabOrder = 1
       end
       object Connexion: TButton
@@ -302,7 +302,7 @@ object Formmstsc: TFormmstsc
         Height = 25
         Top = 128
         Width = 75
-        Caption = 'Connexion'
+        Caption = 'Connect'
         OnClick = ConnexionClick
         TabOrder = 2
       end
@@ -318,25 +318,131 @@ object Formmstsc: TFormmstsc
         Left = 0
         Height = 17
         Top = 72
-        Width = 111
-        Caption = 'Option de sécurité : '
+        Width = 102
+        Caption = 'Protocol security : '
         ParentColor = False
       end
     end
     object Affichage: TTabSheet
-      Caption = 'Affichage'
+      Caption = 'Display'
+      ClientHeight = 186
+      ClientWidth = 462
+      object CheckBox1: TCheckBox
+        Left = 216
+        Height = 23
+        Top = 64
+        Width = 225
+        Caption = 'Use all monitors for remote session'
+        OnChange = CheckBox1Change
+        TabOrder = 0
+      end
+      object TrackBar1: TTrackBar
+        Left = 56
+        Height = 38
+        Top = 128
+        Width = 152
+        Position = 0
+        TabOrder = 1
+      end
+      object fullscreen: TCheckBox
+        Left = 216
+        Height = 23
+        Top = 32
+        Width = 86
+        Caption = 'Full screen'
+        OnChange = fullscreenChange
+        TabOrder = 2
+      end
+      object Label2: TLabel
+        Left = 112
+        Height = 17
+        Top = 160
+        Width = 30
+        Caption = 'width'
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 8
+        Height = 17
+        Top = 8
+        Width = 35
+        Caption = 'height'
+        ParentBidiMode = False
+        ParentColor = False
+      end
+      object ComboBox2: TComboBox
+        Left = 232
+        Height = 29
+        Top = 137
+        Width = 209
+        ItemHeight = 0
+        TabOrder = 3
+        Text = 'ComboBox2'
+      end
+      object Label4: TLabel
+        Left = 232
+        Height = 17
+        Top = 112
+        Width = 42
+        Caption = 'Colors :'
+        ParentColor = False
+      end
+      object TrackBar2: TTrackBar
+        Left = 8
+        Height = 126
+        Top = 40
+        Width = 38
+        Orientation = trVertical
+        Position = 0
+        Reversed = True
+        TabOrder = 4
+      end
     end
     object TabSheet3: TTabSheet
-      Caption = 'Ressources locales'
+      Caption = 'Locale Ressources'
+      ClientHeight = 186
+      ClientWidth = 462
+      object CheckBox2: TCheckBox
+        Left = 8
+        Height = 23
+        Top = 8
+        Width = 80
+        Caption = 'Clipboard'
+        TabOrder = 0
+      end
+      object Button1: TButton
+        Left = 8
+        Height = 25
+        Top = 40
+        Width = 104
+        Caption = 'Drive Redirection'
+        TabOrder = 1
+      end
+      object Label5: TLabel
+        Left = 120
+        Height = 17
+        Top = 48
+        Width = 25
+        Caption = 'path'
+        ParentColor = False
+      end
+      object ToggleBox1: TToggleBox
+        Left = 8
+        Height = 25
+        Top = 72
+        Width = 88
+        Caption = 'ToggleBox1'
+        TabOrder = 2
+      end
     end
     object TabSheet4: TTabSheet
-      Caption = 'Programmes'
+      Caption = 'Programs'
     end
     object TabSheet5: TTabSheet
-      Caption = 'Avancé'
+      Caption = 'Experience'
     end
     object TabSheet6: TTabSheet
-      Caption = 'Connexion'
+      Caption = 'Advanced'
     end
   end
 end
